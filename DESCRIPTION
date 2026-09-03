@@ -1,9 +1,10 @@
 Package: CanvasXpressBio
 Title: CanvasXpress Visualizations for Bioconductor Data Structures
-Version: 0.99.0
+Version: 0.99.1
 Authors@R:
     person("Isaac", "Neuhaus", email = "imnphd@gmail.com",
-           role = c("aut", "cre"))
+           role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-5622-8683"))
 Description: Bridges the CanvasXpress interactive visualization library to core
     Bioconductor data structures. Provides a generic to render a
     SummarizedExperiment, and any class that extends it such as

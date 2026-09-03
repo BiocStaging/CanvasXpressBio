@@ -1,3 +1,7 @@
+# CanvasXpressBio 0.99.1
+
+* Add maintainer ORCID iD to `Authors@R` (BiocCheck note).
+
 # CanvasXpressBio 0.99.0
 
 * Initial submission to Bioconductor.
