@@ -1,0 +1,93 @@
+---
+title: "CanvasXpress visualizations for Bioconductor data"
+author: "Isaac Neuhaus"
+package: CanvasXpressBio
+output:
+  BiocStyle::html_document:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{CanvasXpress visualizations for Bioconductor data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+# Introduction
+
+`CanvasXpressBio` connects the [CanvasXpress](https://canvasxpress.org)
+interactive visualization library to core Bioconductor data structures. It does
+not replace the CRAN `canvasXpress` package — it adds methods that take a
+Bioconductor object directly and render it as a reproducible CanvasXpress
+widget, carrying the object's annotations along for interactive grouping,
+coloring and sorting.
+
+```{r load, message = FALSE}
+library(CanvasXpressBio)
+library(SummarizedExperiment)
+```
+
+# A heatmap from a SummarizedExperiment
+
+`cxplot()` turns the assay matrix into an interactive heatmap. `colData` becomes
+sample (column) annotations and `rowData` becomes feature (row) annotations.
+
+```{r se}
+set.seed(1)
+se <- SummarizedExperiment(
+    assays  = list(counts = matrix(
+        rnorm(200), nrow = 20,
+        dimnames = list(paste0("gene", 1:20), paste0("sample", 1:10)))),
+    colData = S4Vectors::DataFrame(
+        group = rep(c("control", "treated"), each = 5)),
+    rowData = S4Vectors::DataFrame(
+        chromosome = sample(c("chr1", "chr2"), 20, TRUE)))
+
+cxplot(se, title = "Expression heatmap")
+```
+
+Because `SingleCellExperiment` and `DESeqDataSet` both extend
+`SummarizedExperiment`, the same method renders them without any extra code.
+
+## Focusing on the most variable features
+
+Large matrices are easier to read when reduced to their most variable features.
+Pass `n` to keep only the top `n` rows by variance:
+
+```{r topn}
+cxplot(se, n = 10, title = "Top 10 most variable features")
+```
+
+# A volcano plot from differential-expression results
+
+`cxvolcano()` accepts any result table with a log-fold-change and a p-value
+column — a `DESeq2::results()` object, a `limma::topTable()` data frame, or a
+plain data frame.
+
+```{r volcano}
+res <- data.frame(
+    log2FoldChange = rnorm(500),
+    padj           = runif(500),
+    row.names      = paste0("gene", 1:500))
+
+cxvolcano(res, title = "Differential expression")
+```
+
+# A real dataset (optional)
+
+If the `airway` data package is installed, the same call works on real RNA-seq
+counts:
+
+```{r airway, eval = requireNamespace("airway", quietly = TRUE)}
+library(airway)
+data("airway")
+cxplot(airway, n = 25, title = "airway: top 25 variable genes")
+```
+
+# Session info
+
+```{r sessioninfo}
+sessionInfo()
+```

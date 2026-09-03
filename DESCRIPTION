@@ -1,0 +1,37 @@
+Package: CanvasXpressBio
+Title: CanvasXpress Visualizations for Bioconductor Data Structures
+Version: 0.99.0
+Authors@R:
+    person("Isaac", "Neuhaus", email = "imnphd@gmail.com",
+           role = c("aut", "cre"))
+Description: Bridges the CanvasXpress interactive visualization library to core
+    Bioconductor data structures. Provides a generic to render a
+    SummarizedExperiment, and any class that extends it such as
+    SingleCellExperiment or DESeqDataSet, as an interactive CanvasXpress heatmap
+    that carries its row and column annotations, together with a volcano helper
+    for differential-expression result tables. Charts are reproducible
+    CanvasXpress widgets usable in R, R Markdown and Shiny.
+License: GPL-3
+Encoding: UTF-8
+biocViews: Software, Visualization, GeneExpression, DifferentialExpression,
+    RNASeq, SingleCell, Transcriptomics
+Depends:
+    R (>= 4.5.0)
+Imports:
+    methods,
+    stats,
+    canvasXpress,
+    SummarizedExperiment
+Suggests:
+    SingleCellExperiment,
+    S4Vectors,
+    airway,
+    BiocStyle,
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+URL: https://github.com/neuhausi/canvasXpress
+BugReports: https://github.com/neuhausi/canvasXpress/issues
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+RoxygenNote: 7.3.3
