@@ -1,3 +1,9 @@
+# CanvasXpressBio 0.99.2
+
+* Vignette charts now render in the built HTML: require `canvasXpress (>= 1.70.3)`, which
+  ships a CanvasXpress library that BiocStyle's self-contained HTML post-processing no longer
+  corrupts (earlier versions were mangled on inlining, leaving the widgets blank).
+
 # CanvasXpressBio 0.99.1
 
 * Add maintainer ORCID iD to `Authors@R` (BiocCheck note).
