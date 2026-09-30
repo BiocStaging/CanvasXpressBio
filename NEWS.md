@@ -2,7 +2,8 @@
 
 * Vignette charts now render in the built HTML: require `canvasXpress (>= 1.70.3)`, which
   ships a CanvasXpress library that BiocStyle's self-contained HTML post-processing no longer
-  corrupts (earlier versions were mangled on inlining, leaving the widgets blank).
+  corrupts (earlier versions were mangled on inlining, leaving the widgets blank). Verified by
+  rendering the vignette against the CRAN 1.70.3 library.
 
 # CanvasXpressBio 0.99.1
 
