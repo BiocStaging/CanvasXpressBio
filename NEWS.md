@@ -1,3 +1,8 @@
+# CanvasXpressBio 0.99.3
+
+* Version bump to re-run the Bioconductor staging build (no code changes; 0.99.2 built
+  and passed checks but failed to publish).
+
 # CanvasXpressBio 0.99.2
 
 * Vignette charts now render in the built HTML: require `canvasXpress (>= 1.70.3)`, which
