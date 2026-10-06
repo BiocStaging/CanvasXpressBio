@@ -4,13 +4,35 @@
 \alias{cxvolcano}
 \title{Volcano plot of differential-expression results with CanvasXpress}
 \usage{
-cxvolcano(x, logfc = "log2FoldChange", pval = "padj", ...)
+cxvolcano(
+  x,
+  logfc = "log2FoldChange",
+  pval = "padj",
+  label = TRUE,
+  label_genes = NULL,
+  label_fc = 1,
+  label_p = 2,
+  ...
+)
 }
 \arguments{
 \item{x}{A data-frame-like table of results.}
 
-\item{logfc, pval}{Column names holding the log fold change and the (adjusted)
-p-value. The defaults suit `DESeq2` output.}
+\item{logfc, pval}{Column names holding the log fold change and the
+(adjusted) p-value. The defaults suit `DESeq2` output.}
+
+\item{label}{Logical; when `TRUE` (the default) genes are labelled with
+their row names. Set to `FALSE` to draw an unlabelled volcano.}
+
+\item{label_genes}{Optional character vector of gene (row) names to label.
+When supplied, only these genes are labelled — useful for calling out a
+named set on a dense plot. When `NULL` (the default) every significant
+gene is labelled instead.}
+
+\item{label_fc, label_p}{Thresholds that decide which genes are labelled: a
+gene is labelled when its absolute log fold change exceeds `label_fc` and
+its \eqn{-\log_{10}} p-value exceeds `label_p`. Defaults of `1` and `2`
+label points outside a two-fold change and below p \eqn{\approx} 0.01.}
 
 \item{...}{Additional CanvasXpress configuration passed to
 [canvasXpress::canvasXpress()].}

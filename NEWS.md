@@ -1,3 +1,20 @@
+# CanvasXpressBio 0.99.4
+
+* Fix `cxvolcano()`: the result matrix was transposed, so every gene collapsed
+  onto two plotted points. Genes are now the variables and the fold-change /
+  p-value are the axis columns, giving one point per gene.
+* `cxvolcano()` now colours points by regulation (up / down / not significant),
+  draws the fold-change and p-value threshold lines, and gains `label`,
+  `label_genes`, `label_fc` and `label_p` to label significant or named genes.
+* `cxplot()` gains `overlays`, `var_overlays` and `cluster` to draw `colData` /
+  `rowData` annotations as overlay tracks and to cluster rows and columns.
+* New `cxsurvival()` draws a Kaplan-Meier curve from `colData`.
+* New `cxboxplot()` draws a paired boxplot of one feature with per-subject
+  connecting lines, faceting and colouring from `colData`.
+* Rewrote the vignette around a single `SummarizedExperiment` shown as a
+  heatmap, volcano, Kaplan-Meier curve and paired boxplot, and added a section
+  motivating the package relative to existing Bioconductor visualization tools.
+
 # CanvasXpressBio 0.99.3
 
 * Version bump to re-run the Bioconductor staging build (no code changes; 0.99.2 built

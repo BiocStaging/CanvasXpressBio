@@ -7,7 +7,16 @@
 \usage{
 cxplot(object, ...)
 
-\S4method{cxplot}{SummarizedExperiment}(object, assay = 1L, graphType = "Heatmap", n = NULL, ...)
+\S4method{cxplot}{SummarizedExperiment}(
+  object,
+  assay = 1L,
+  graphType = "Heatmap",
+  n = NULL,
+  overlays = NULL,
+  var_overlays = NULL,
+  cluster = FALSE,
+  ...
+)
 }
 \arguments{
 \item{object}{A Bioconductor data object. Currently a
@@ -25,6 +34,16 @@ first assay.}
 \item{n}{Optional integer. When supplied, only the `n` most variable
 features (rows) are kept before plotting — a common convenience for large
 genomics matrices. Defaults to `NULL`, which keeps all features.}
+
+\item{overlays}{Sample (`colData`) annotations to draw as overlay tracks
+beside the heatmap. `TRUE` shows every `colData` column; a character
+vector names specific ones; `NULL` (the default) shows none.}
+
+\item{var_overlays}{Feature (`rowData`) annotations to draw as overlay
+tracks, accepting the same values as `overlays`.}
+
+\item{cluster}{Logical; when `TRUE` both samples and features are
+hierarchically clustered (adding dendrograms). Defaults to `FALSE`.}
 }
 \value{
 A `canvasXpress` htmlwidget.

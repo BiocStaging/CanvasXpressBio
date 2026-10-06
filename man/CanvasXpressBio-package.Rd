@@ -7,12 +7,13 @@
 \title{CanvasXpress visualizations for Bioconductor data structures}
 \description{
 Bridges the CanvasXpress interactive visualization library to core
-Bioconductor classes. The [cxplot()] generic renders a
+Bioconductor classes. [cxplot()] renders a
 [SummarizedExperiment::SummarizedExperiment] (and any class that extends it,
 such as `SingleCellExperiment` or `DESeqDataSet`) as an interactive
-CanvasXpress heatmap carrying its row and column annotations, and
-[cxvolcano()] draws a volcano plot from a differential-expression result
-table.
+CanvasXpress heatmap carrying its row and column annotations; [cxvolcano()]
+draws a volcano plot from a differential-expression table; [cxsurvival()]
+draws a Kaplan-Meier curve from `colData`; and [cxboxplot()] draws a paired
+boxplot of one feature with per-subject connections.
 }
 \seealso{
 Useful links:
@@ -23,7 +24,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Isaac Neuhaus \email{imnphd@gmail.com}
+\strong{Maintainer}: Isaac Neuhaus \email{imnphd@gmail.com} (\href{https://orcid.org/0000-0002-5622-8683}{ORCID})
 
 }
 \keyword{internal}
